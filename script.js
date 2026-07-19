@@ -1,15 +1,17 @@
 let cart = 0;
 
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll(".product button");
+const cartCount = document.getElementById("cart-count");
 
 buttons.forEach(button => {
     button.addEventListener("click", () => {
         cart++;
-        button.innerHTML = "Added ✓";
-        setTimeout(() => {
-            button.innerHTML = "Add to Cart";
-        }, 1000);
+        cartCount.textContent = cart;
 
-        console.log("Cart items:", cart);
+        button.textContent = "Added ✓";
+
+        setTimeout(() => {
+            button.textContent = "Add to Cart";
+        }, 1000);
     });
 });
