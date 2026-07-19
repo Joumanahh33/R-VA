@@ -126,3 +126,37 @@ select{
     color:#666;
     margin-bottom:25px;
     }
+footer{
+    background:#5a1e32;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+    margin-top:50px;
+}
+
+footer h2{
+    font-size:35px;
+    letter-spacing:3px;
+    margin-bottom:10px;
+}
+
+footer p{
+    margin:10px 0;
+    font-size:16px;
+}
+
+.social a{
+    color:white;
+    text-decoration:none;
+    margin:0 10px;
+    font-size:16px;
+}
+
+.social a:hover{
+    opacity:.7;
+}
+
+.copyright{
+    margin-top:25px;
+    font-size:14px;
+}
