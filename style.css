@@ -117,3 +117,50 @@ header{
 }
 
 }
+.logo{
+    font-size:40px;
+    font-weight:bold;
+    letter-spacing:5px;
+    color:#5a1e32;
+}
+
+
+header{
+    background:white;
+    padding:25px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+
+.hero{
+    height:450px;
+    background:linear-gradient(
+    rgba(0,0,0,.25),
+    rgba(0,0,0,.25)
+    ),
+    url("IMG-20260719-WA0000.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+    text-align:center;
+}
+
+
+.hero h2{
+    font-size:70px;
+    letter-spacing:8px;
+}
+
+
+.hero p{
+    font-size:25px;
+}
