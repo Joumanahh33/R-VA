@@ -178,3 +178,30 @@ nav{
     align-items:center;
     gap:20px;
 }
+#cart-box{
+    display:none;
+    position:fixed;
+    top:80px;
+    right:20px;
+    width:320px;
+    background:white;
+    padding:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+    z-index:1000;
+    border-radius:10px;
+}
+
+
+#cart-box h2{
+    color:#5a1e32;
+}
+
+
+#cart-items{
+    margin:20px 0;
+}
+
+
+#cart-box button{
+    width:100%;
+}
