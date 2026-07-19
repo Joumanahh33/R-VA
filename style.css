@@ -160,3 +160,137 @@ footer p{
     margin-top:25px;
     font-size:14px;
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RÉVA</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <h1>RÉVA</h1>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+
+<section class="hero">
+    <h2>Luxury Fashion</h2>
+    <p>Elegant pieces made for every moment.</p>
+</section>
+
+
+<section id="products" class="products">
+
+<h2>Our Collection</h2>
+
+
+<div class="product">
+<img src="IMG-20260719-WA0000.jpg" alt="RÉVA Product">
+<h3>Elegant Blouse</h3>
+<p class="price">450 EGP</p>
+
+<select>
+<option>Small</option>
+<option>Medium</option>
+<option>Large</option>
+<option>X-Large</option>
+</select>
+
+<button>Add to Cart</button>
+</div>
+
+
+<div class="product">
+<img src="IMG-20260719-WA0001.jpg" alt="RÉVA Product">
+<h3>Luxury Blouse</h3>
+<p class="price">450 EGP</p>
+
+<select>
+<option>Small</option>
+<option>Medium</option>
+<option>Large</option>
+<option>X-Large</option>
+</select>
+
+<button>Add to Cart</button>
+</div>
+
+
+<div class="product">
+<img src="IMG-20260719-WA0002.jpg" alt="RÉVA Product">
+<h3>Classic Cardigan</h3>
+<p class="price">550 EGP</p>
+
+<select>
+<option>Small</option>
+<option>Medium</option>
+<option>Large</option>
+<option>X-Large</option>
+</select>
+
+<button>Add to Cart</button>
+</div>
+
+
+<div class="product">
+<img src="IMG-20260719WA0003.jpg" alt="RÉVA Product">
+<h3>Olive Cardigan</h3>
+<p class="price">500 EGP</p>
+
+<select>
+<option>Small</option>
+<option>Medium</option>
+<option>Large</option>
+<option>X-Large</option>
+</select>
+
+<button>Add to Cart</button>
+</div>
+
+
+<div class="product">
+<img src="IMG-20260719-WA0007.jpg" alt="RÉVA Product">
+<h3>New Collection</h3>
+<p class="price">550 EGP</p>
+
+<select>
+<option>Small</option>
+<option>Medium</option>
+<option>Large</option>
+<option>X-Large</option>
+</select>
+
+<button>Add to Cart</button>
+</div>
+
+
+</section>
+
+
+
+<footer id="contact">
+
+<h2>RÉVA</h2>
+
+<p>Luxury fashion made for every moment.</p>
+
+<p>Instagram | TikTok | Contact</p>
+
+<p>© 2026 RÉVA. All rights reserved.</p>
+
+</footer>
+
+
+</body>
+</html>
