@@ -22,7 +22,7 @@
 <a href="#collection">Collection</a>
 <a href="#contact">Contact</a>
 
-<div class="cart">
+<div class="cart" onclick="openCart()">
 🛒 <span id="cart-count">0</span>
 </div>
 
@@ -141,7 +141,16 @@
 <p>Instagram | TikTok | Contact</p>
 
 <p>© 2026 RÉVA</p>
+<div id="cart-box">
+<h2>Your Cart</h2>
 
+<div id="cart-items"></div>
+
+<h3 id="total">Total: 0 EGP</h3>
+
+<button onclick="closeCart()">Close</button>
+
+</div>
 </footer>
 
 <script src="script.js"></script>
