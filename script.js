@@ -105,7 +105,26 @@ function checkout(){
     return;
   }
 
-  alert("Thank you for your order ❤️");
+  document.getElementById("checkout-box").style.display = "block";
+
+}
+
+
+function sendOrder(){
+
+  let name = document.getElementById("customer-name").value;
+  let phone = document.getElementById("customer-phone").value;
+  let address = document.getElementById("customer-address").value;
+
+
+  if(name === "" || phone === "" || address === ""){
+    alert("Please fill all information");
+    return;
+  }
+
+
+  alert("Order sent successfully ✅");
+
 
 }
 updateCartCount();
