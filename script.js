@@ -68,8 +68,11 @@ function openCart() {
 
   cart.forEach(item => {
     items.innerHTML += `
-      <p>${item.name} - ${item.price} EGP</p>
-    `;
+  <p>
+    ${item.name} - ${item.price} EGP
+    <button onclick="removeFromCart(${index})">Remove</button>
+  </p>
+`;
     sum += item.price;
   });
 
