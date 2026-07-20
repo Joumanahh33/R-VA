@@ -194,3 +194,18 @@ body{
   border-radius:30px;
   font-size:18px;
 }
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+.shop-btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:14px 35px;
+  background:#5a1e32;
+  color:white;
+  text-decoration:none;
+  border-radius:30px;
+  font-size:18px;
+}
