@@ -1,165 +1,70 @@
-3<!DOCTYPE html>
-<html lang="en">
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+function addToCart(name, price) {
+  cart.push({
+    name: name,
+    price: price
+  });
 
-<title>RÉVA</title>
+  localStorage.setItem("cart", JSON.stringify(cart));
 
-<link rel="stylesheet" href="style.css">
-</head>
+  updateCartCount();
 
+  alert("Added to cart ✅");
+}
 
-<body>
+function updateCartCount() {
+  let count = document.getElementById("cart-count");
 
-<header>
+  if (count) {
+    count.innerHTML = cart.length;
+  }
+}
 
-<div class="logo">RÉVA</div>
+function openCart() {
+  let box = document.getElementById("cart-box");
+  let items = document.getElementById("cart-items");
+  let total = document.getElementById("cart-total");
 
-<nav>
-<a href="#">Home</a>
-<a href="#collection">Collection</a>
-<a href="#contact">Contact</a>
+  if (!box || !items || !total) return;
 
-<div class="cart" onclick="openCart()">
-<button onclick="openCart()">🛒 <span id="cart-count">0</span></button>
-</div>
+  cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-</nav>
+  box.style.display = "block";
+  items.innerHTML = "";
 
-</header>
+  let sum = 0;
 
+  cart.forEach(function(item, index) {
+    items.innerHTML += `
+      <p>
+        ${item.name} - ${item.price} EGP
+        <button onclick="removeFromCart(${index})">Remove</button>
+      </p>
+    `;
 
+    sum += Number(item.price);
+  });
 
-<section class="hero">
+  total.innerHTML = sum;
+}
 
-<h2>RÉVA</h2>
-<h3>White Blouse</h3>
+function removeFromCart(index) {
+  cart.splice(index, 1);
 
-</section>
+  localStorage.setItem("cart", JSON.stringify(cart));
 
+  updateCartCount();
 
+  openCart();
+}
 
+function closeCart() {
+  let box = document.getElementById("cart-box");
 
-<section id="collection">
+  if (box) {
+    box.style.display = "none";
+  }
+}
 
-<h2 class="title">New Collection</h2>
-
-
-<div class="products">
-
-
-<div class="product">
-<img src="IMG-20260719-WA0000.jpg" alt="Product 1">
-<h3>New Collection</h3>
-
-
-  
-
-<div class="product">
-<img src="IMG-20260719-WA0001.jpg" alt="Product 2">
-<h3>White Blouse</h3>
-<p>450 EGP</p>
-
-<select>
-<option>Small</option>
-<option>Medium</option>
-<option>Large</option>
-</select>
-
-<button onclick="addToCart('White Blouse',450)">Add to Cart</button>
-</div>
-
-
-
-
-<div class="product">
-<img src="IMG-20260719-WA0002.jpg" alt="Product 3">
-<h3>Black Blouse</h3>
-<p>450 EGP</p>
-
-<select>
-<option>Small</option>
-<option>Medium</option>
-<option>Large</option>
-</select>
-
-<button onclick="addToCart('Black Blouse',450)">Add to Cart</button>
-</div>
-
-
-
-
-<div class="product">
-<img src="IMG-20260719-WA0003.jpg" alt="Product 4">
-<h3>Olive Cardigan</h3>
-<p>500 EGP</p>
-
-<select>
-<option>Small</option>
-<option>Medium</option>
-<option>Large</option>
-</select>
-
-<button onclick="addToCart('Olive Cardigan',500)">Add to Cart</button>
-</div>
-
-
-
-
-<div class="product">
-<img src="IMG-20260719-WA0007.jpg" alt="Product 5">
-<h3>WhiteCardigan</h3>
-<p>550 EGP</p>
-
-<select>
-<option>Small</option>
-<option>Medium</option>
-<option>Large</option>
-</select>
-
-<button onclick="addToCart('White Cardigan',550)">Add to Cart</button>
-</div>
-
-
-
-</div>
-
-</section>
-
-
-
-
-
-<footer id="contact">
-
-<h2>RÉVA</h2>
-
-<p>Luxury fashion made for every moment.</p>
-
-<p>Instagram | TikTok | Contact</p>
-
-<p>© 2026 RÉVA</p>
-<div id="cart-box">
-<h2>Your Cart</h2>
-
-<div id="cart-items"></div>
-
-<h3 id="total">Total: 0 EGP</h3>
-
-<button onclick="closeCart()">Close</button>
-
-</div>
-</footer>
-
-<script src="script.js"></script>
-<div id="cart-box" style="display:none;">
-  <h2>Your Cart</h2>
-  <div id="cart-items"></div>
-  <h3>Total: <span id="cart-total">0</span> EGP</h3>
-  <button onclick="closeCart()">Close</button>
-</div>
-</body>
-
-</html>
+updateCartCount();
