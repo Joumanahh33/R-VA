@@ -1,11 +1,3 @@
-let cart = [];
-
 function addToCart(name, price) {
-  cart.push({
-    name: name,
-    price: price
-  });
-
-  alert("Added to cart ✅");
-  console.log(cart);
+  alert("تمت إضافة " + name + " للسلة ✅");
 }
