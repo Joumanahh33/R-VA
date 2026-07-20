@@ -98,5 +98,14 @@ function closeCart() {
 }
 
 
+function checkout(){
 
+  if(cart.length === 0){
+    alert("Your cart is empty");
+    return;
+  }
+
+  alert("Thank you for your order ❤️");
+
+}
 updateCartCount();
