@@ -1,70 +1,94 @@
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RÉVA</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
-function addToCart(name, price) {
-  cart.push({
-    name: name,
-    price: price
-  });
+<body>
 
-  localStorage.setItem("cart", JSON.stringify(cart));
+<header class="navbar">
+<h1>RÉVA</h1>
 
-  updateCartCount();
+<button onclick="openCart()">
+🛒 <span id="cart-count">0</span>
+</button>
 
-  alert("Added to cart ✅");
-}
+</header>
 
-function updateCartCount() {
-  let count = document.getElementById("cart-count");
 
-  if (count) {
-    count.innerHTML = cart.length;
-  }
-}
+<section class="hero">
+<h2>Luxury Fashion</h2>
+<p>Elegant pieces made for you</p>
+</section>
 
-function openCart() {
-  let box = document.getElementById("cart-box");
-  let items = document.getElementById("cart-items");
-  let total = document.getElementById("cart-total");
 
-  if (!box || !items || !total) return;
+<section class="products">
 
-  cart = JSON.parse(localStorage.getItem("cart")) || [];
+<div class="product">
+<img src="black-blouse.jpg">
+<h3>Black Blouse</h3>
+<p class="price">450 EGP</p>
+<button onclick="addToCart('Black Blouse',450)">
+Add to Cart
+</button>
+</div>
 
-  box.style.display = "block";
-  items.innerHTML = "";
 
-  let sum = 0;
+<div class="product">
+<img src="white-blouse.jpg">
+<h3>White Blouse</h3>
+<p class="price">450 EGP</p>
+<button onclick="addToCart('White Blouse',450)">
+Add to Cart
+</button>
+</div>
 
-  cart.forEach(function(item, index) {
-    items.innerHTML += `
-      <p>
-        ${item.name} - ${item.price} EGP
-        <button onclick="removeFromCart(${index})">Remove</button>
-      </p>
-    `;
 
-    sum += Number(item.price);
-  });
+<div class="product">
+<img src="white-cardigan.jpg">
+<h3>White Cardigan</h3>
+<p class="price">550 EGP</p>
+<button onclick="addToCart('White Cardigan',550)">
+Add to Cart
+</button>
+</div>
 
-  total.innerHTML = sum;
-}
 
-function removeFromCart(index) {
-  cart.splice(index, 1);
+<div class="product">
+<img src="olive-cardigan.jpg">
+<h3>Olive Cardigan</h3>
+<p class="price">500 EGP</p>
+<button onclick="addToCart('Olive Cardigan',500)">
+Add to Cart
+</button>
+</div>
 
-  localStorage.setItem("cart", JSON.stringify(cart));
+</section>
 
-  updateCartCount();
 
-  openCart();
-}
 
-function closeCart() {
-  let box = document.getElementById("cart-box");
+<div id="cart-box">
 
-  if (box) {
-    box.style.display = "none";
-  }
-}
+<h2>Your Cart</h2>
 
-updateCartCount();
+<div id="cart-items"></div>
+
+<h3>
+Total: <span id="cart-total">0</span> EGP
+</h3>
+
+<button onclick="closeCart()">
+Close
+</button>
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
