@@ -18,18 +18,34 @@ buttons.forEach(button => {
         total += price;
 
         cartCount.textContent = cart;
+        totalText.textContent = `Total: ${total} EGP`;
 
         const item = document.createElement("div");
-        item.innerHTML = `<p>${name} - ${price} EGP</p>`;
-        cartItems.appendChild(item);
+        item.className = "cart-item";
 
-        totalText.textContent = `Total: ${total} EGP`;
+        item.innerHTML = `
+            <p>${name} - ${price} EGP</p>
+            <button class="remove-btn">Remove</button>
+        `;
+
+        item.querySelector(".remove-btn").addEventListener("click", () => {
+            cart--;
+            total -= price;
+
+            cartCount.textContent = cart;
+            totalText.textContent = `Total: ${total} EGP`;
+
+            item.remove();
+        });
+
+        cartItems.appendChild(item);
 
         button.textContent = "Added ✓";
 
         setTimeout(() => {
             button.textContent = "Add to Cart";
         }, 1000);
+
     });
 });
 
