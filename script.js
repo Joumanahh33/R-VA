@@ -39,7 +39,7 @@ function openCart() {
     items.innerHTML += `
       <p>${item.name} - ${item.price} EGP</p>
     `;
-    sum += Number(item.price);
+    sum += parseInt(item.price);
   });
 
   total.innerHTML = sum;
