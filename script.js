@@ -22,20 +22,27 @@ function updateCartCount() {
 }
 
 function openCart() {
-  let cartBox = document.getElementById("cart-items");
+  let box = document.getElementById("cart-box");
+  let items = document.getElementById("cart-items");
+  let total = document.getElementById("cart-total");
 
-  if (!cartBox) return;
+  if (!box || !items || !total) return;
 
-  cartBox.innerHTML = "";
+  cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  cart.forEach((item, index) => {
-    cartBox.innerHTML += `
-      <p>
-      ${item.name} - ${item.price} EGP
-      <button onclick="removeFromCart(${index})">Remove</button>
-      </p>
+  box.style.display = "block";
+  items.innerHTML = "";
+
+  let sum = 0;
+
+  cart.forEach(function(item) {
+    items.innerHTML += `
+      <p>${item.name} - ${item.price} EGP</p>
     `;
+    sum += Number(item.price);
   });
+
+  total.innerHTML = sum;
 }
 
 function removeFromCart(index) {
