@@ -47,3 +47,28 @@ function removeFromCart(index) {
 }
 
 updateCartCount();
+function openCart() {
+  let box = document.getElementById("cart-box");
+  let items = document.getElementById("cart-items");
+  let total = document.getElementById("cart-total");
+
+  if (!box || !items || !total) return;
+
+  box.style.display = "block";
+  items.innerHTML = "";
+
+  let sum = 0;
+
+  cart.forEach(item => {
+    items.innerHTML += `
+      <p>${item.name} - ${item.price} EGP</p>
+    `;
+    sum += item.price;
+  });
+
+  total.innerHTML = sum;
+}
+
+function closeCart() {
+  document.getElementById("cart-box").style.display = "none";
+}
