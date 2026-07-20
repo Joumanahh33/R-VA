@@ -125,6 +125,14 @@ function sendOrder(){
 
   alert("Order sent successfully ✅");
 
+document.getElementById("checkout-box").style.display = "none";
+
+}
+
+
+function closeCheckout(){
+
+  document.getElementById("checkout-box").style.display = "none";
 
 }
 updateCartCount();
