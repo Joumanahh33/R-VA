@@ -116,11 +116,55 @@ function sendOrder(){
   let phone = document.getElementById("customer-phone").value;
   let address = document.getElementById("customer-address").value;
 
-
   if(name === "" || phone === "" || address === ""){
     alert("Please fill all information");
     return;
   }
+
+  let products = "";
+
+  cart.forEach(function(item){
+    products += item.name + " (" + item.price + " EGP), ";
+  });
+
+  let total = 0;
+
+  cart.forEach(function(item){
+    total += Number(item.price);
+  });
+
+  fetch("https://script.google.com/macros/s/AKfycbxuyXbcIjiguYKH6eAgKzsNujsgnv8v8QCQWVOOM6AXygyrbBmJj_gKdJ0zl2OHHq-Z3w/exec", {
+
+    method: "POST",
+
+    body: JSON.stringify({
+      name: name,
+      phone: phone,
+      address: address,
+      governorate: "",
+      products: products,
+      total: total
+    })
+
+  })
+
+  .then(() => {
+
+    alert("Order sent successfully ✅");
+
+    cart = [];
+    localStorage.removeItem("cart");
+    updateCartCount();
+
+    document.getElementById("cart-items").innerHTML = "";
+    document.getElementById("cart-total").innerHTML = "0";
+
+    closeCheckout();
+    closeCart();
+
+  });
+
+}
 
 
   alert("Order sent successfully ✅");
